@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const configDB = require("./config.js");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -27,10 +28,10 @@ mongoose
 // app.use("/api/items", items);
 
 // testing
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", cors(), (req, res) => res.send("Hello World!"));
 
 //get posts
-app.use("/api/posts", posts);
+app.use("/api/posts", cors(), posts);
 
 const port = process.env.PORT || 5000;
 
