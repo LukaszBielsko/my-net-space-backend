@@ -6,5 +6,8 @@ exports.posts = async function(req, res) {
     .then(posts => {
       console.log(posts);
       return res.json(posts);
+    })
+    .catch(err => {
+      console.log(err);
     });
 };
